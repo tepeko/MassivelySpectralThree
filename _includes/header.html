@@ -1,26 +1,67 @@
 <!-- Header -->
 <header id="header"{% if page.layout == 'landing' %} class="alt"{% endif %}>
   <h1><a href="{{ site.baseurl }}/index.html">{{ site.title }}</a></h1>
-  <nav id="nav">
-    <ul>
-      <li class="special">
-        <a href="#menu" class="menuToggle"><span>Menu</span></a>
-        <div id="menu">
-          <ul>
-            <li><a href="{{ "/index.html#greeting" | prepend: site.baseurl }}">Home</a></li>{%
-            assign sorted_pages = site.pages | sort: 'key','last' %}{%
-            for my_page in sorted_pages %}{%
-              if my_page.title %}{%
-                unless my_page.options contains 'nomenu' %}
-            <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>{%
-                endunless %}{%
-              endif %}{%
-            endfor %}
-            <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}"
-                   class="icon fa-feed"> RSS Feed</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </nav>
+  <div id="wrapper" class="fade-in">
+      <body class="is-loading">
+          <nav id="nav">
+            <ul class="links">
+              <li class="active"><a href="landing.html">HOME</a></li>
+              <li><a href="works.html">Works Page</a></li>
+              <li><a href="topics.html">Topics Page</a></li>
+            </ul>
+            <ul class="icons">
+              <li><a href="https://twitter.com/tepeko" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="https://www.facebook.com/teemu.koskimaki" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="https://www.instagram.com/teepeko" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+
+              <li><a href="https://www.instagram.com/teepeko" class="icon fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+          </nav>
+      
+          <nav id="nav">
+            <ul>
+              <li class="special">
+                <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                <div id="menu">
+                  <ul>
+                    <li><a href="{{ "/index.html#greeting" | prepend: site.baseurl }}">Home</a></li>{%
+                    assign sorted_pages = site.pages | sort: 'key','last' %}{%
+                    for my_page in sorted_pages %}{%
+                      if my_page.title %}{%
+                        unless my_page.options contains 'nomenu' %}
+                    <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>{%
+                        endunless %}{%
+                      endif %}{%
+                    endfor %}
+                    <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}"
+                           class="icon fa-feed"> RSS Feed</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </body>
+    </div>
 </header>
+
+<!-- Nav 
+        <section class="wrapper style5">
+          <div id="wrapper" class="fade-in">
+            <body class="is-loading">
+              <nav id="nav">
+                <ul class="links">
+                  <li class="active"><a href="landing.html">HOME</a></li>
+                  <li><a href="works.html">Works Page</a></li>
+                  <li><a href="topics.html">Topics Page</a></li>
+                </ul>
+                <ul class="icons">
+                  <li><a href="https://twitter.com/tepeko" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                  <li><a href="https://www.facebook.com/teemu.koskimaki" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                  <li><a href="https://www.instagram.com/teepeko" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+
+                  <li><a href="https://www.instagram.com/teepeko" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+              </nav>
+            </body>
+          </div>
+        </section> -->
